@@ -9,7 +9,8 @@ class TripleSpec extends ObjectBehavior
 {
     function let() {
         $this->beConstructedWith([
-            'subject' => '?x'
+            'subject'   => '?x',
+            'predicate' => 'rdfs:label'
         ]);
     }
 
@@ -19,5 +20,9 @@ class TripleSpec extends ObjectBehavior
 
     function it_should_have_a_subject_of_question_mark_x() {
         $this->subject->shouldBe('?x');
+    }
+
+    function it_should_have_a_predicate_of_rdfs_colon_label() {
+        $this->predicate->shouldBe('rdfs:label');
     }
 }
