@@ -10,7 +10,8 @@ class TripleSpec extends ObjectBehavior
     function let() {
         $this->beConstructedWith([
             'subject'   => '?x',
-            'predicate' => 'rdfs:label'
+            'predicate' => 'rdfs:label',
+            'object'    => '"Hello World"@en'
         ]);
     }
 
@@ -24,5 +25,11 @@ class TripleSpec extends ObjectBehavior
 
     function it_should_have_a_predicate_of_rdfs_colon_label() {
         $this->predicate->shouldBe('rdfs:label');
+    }
+
+    function it_should_have_an_object_of_a_hello_world_english_string() {
+        // We can't do the following due to phpSpec voodoo.
+        // `$this->object->shouldBe('"Hello World"@en');`
+        assert($this->getWrappedObject()->object === '"Hello World"@en');
     }
 }
