@@ -7,8 +7,17 @@ use Prophecy\Argument;
 
 class TripleSpec extends ObjectBehavior
 {
-    function it_is_initializable()
-    {
+    function let() {
+        $this->beConstructedWith([
+            'subject' => '?x'
+        ]);
+    }
+
+    function it_is_initializable() {
         $this->shouldHaveType('RadHam\Sparql\Triple');
+    }
+
+    function it_should_have_a_subject_of_question_mark_x() {
+        $this->subject->shouldBe('?x');
     }
 }
