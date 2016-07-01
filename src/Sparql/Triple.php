@@ -4,8 +4,14 @@ namespace RadHam\Sparql;
 
 class Triple
 {
+    /**
+     * @var string
+     */
     public $subject;
 
+    /**
+     * @var string
+     */
     public $predicate;
 
     public function __construct(array $parameters) {
